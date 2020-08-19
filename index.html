@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Sudoku Solver</title>
+    </head>
+    <body>
+        <h1>Sudoku Solver</h1>
+        
+        <div id="fill_container">
+            <div id="fill_in">
+                <label for="fill">Fill in the bold numbers:</label>
+                <input type="number" id="fill" min="1" max="9" maxlength="1">
+                <i id="help_btn" class="fa fa-question-circle" onclick="help();"></i>
+                <div id="help_modal" class="modal">
+                    <div class="modal-content">
+                        <span id="close">&times;</span>
+                        <p>This Sudoku Solver is for beginner (&#11088;) and some intermediate (&#11088;&#11088;) levels. Advanced levels will be solved soon.</p>
+                        <div id="help_info">
+                            <h4>What to Do</h4>
+                            <ol>
+                                <li><p>Click on a square to fill in the numbers as seen in the puzzle</p></li>
+                                <li><p>Hint button: Fills in the empty squares one box at a time</p></li>
+                                <li><p>Solve button: Fills in the whole board</p></li>
+                                <li><p>Reset button: Starts a new puzzle</p></li>
+                                <li><p>Restart button: Starts over</p></li>
+                            </ol>
+                        </div> 
+                        <p>Note: Refresh the page if you come across any issues</p>  
+                    </div>
+                </div>
+            </div>
+            <h2 id="smiley" style="display:none;">&#x1f600;</h2>
+        </div>
+
+        <div id="info" class="modal-content" style="display:none;">
+            <p>Looks like you are trying to solve an Advanced Problem</p>
+            <p>Advanced problems will be solved soon. Until then...</p>
+            <p>Here are some methods to solving these problems with this level of difficulty:</p>
+            <div id="methods">
+                <ol>
+                    <li><p>Elimination on Squares</p></li>
+                    <li><p>Solving on Possibilities</p></li>
+                    <li><p>Elimination on Numbers</p></li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="board_container">
+            <div id="loader"></div>
+            <div id="board"></div>
+            <button id="hint" class="answer" onclick="box_by_box();">Hint</button>
+            <button id="solve" class="answer" onclick="full_answer();">Solve</button>
+        </div>
+
+        <script src="sudoku.js"></script>
+    </body>
+</html>
